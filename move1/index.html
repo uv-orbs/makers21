@@ -8,15 +8,24 @@
 <body>  
 <!-- scene -->
 <a-scene>
+  <!-- assets -->
+  <!-- <a-assets>
+    <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg" data-position="0 0 0" alt="Table de conférence">
+  </a-assets> -->
+
   <a-box position="-1 0.5 -3" rotation="0 45 0" foo color="#4CC3D9"></a-box>
-  <!-- <a-sphere position="0 4.25 -15" radius="1.25" color="#EF2D5E"></a-sphere>
-  <a-sphere position="0 0 -20" radius="20" material="color: #FF00FF; transparent: true; opacity: 0.1"></a-sphere>
-  <a-sphere position="20 0 -20" radius="20" material="color: #0000FF; transparent: true; opacity: 0.1"></a-sphere>
-  <a-sphere position="-20 0 -20" radius="20" material="color: #00FFFF; transparent: true; opacity: 0.1"></a-sphere>
-  <a-cylinder position="-3 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder> -->
+  <!-- <a-sphere position="0 4.25 -15" radius="1.25" color="#EF2D5E"></a-sphere> -->
+  <a-sphere position="0 0 200" radius="100" material="color: #FF00FF; transparent: true; opacity: 0.1"></a-sphere>
+  <a-sphere position="0 0 -200" radius="100" material="color: #FF00FF; transparent: true; opacity: 0.1"></a-sphere>
+  <a-sphere position="-200 0 0" radius="100" material="color: #0000FF; transparent: true; opacity: 0.1"></a-sphere>
+  <a-sphere position="200 0 0" radius="100" material="color: #0000FF; transparent: true; opacity: 0.1"></a-sphere>
+  <!-- <a-sphere position="20 0 -20" radius="20" material="color: #0000FF; transparent: true; opacity: 0.1"></a-sphere> -->
+  <!-- <a-sphere position="-20 0 -20" radius="20" material="color: #00FFFF; transparent: true; opacity: 0.1"></a-sphere> -->
+  <!-- <a-cylinder position="-3 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder> -->
   <!-- <a-plane position="0 0 -4" rotation="-90 0 0" width="20" height="20" color="#7BC8A4"></a-plane>   -->
   <!-- Sky  -->
   <a-sky color="#a3d0ed"></a-sky>    
+  <!-- <a-sky src="#city" rotation="0 0 0"></a-sky>  -->
   <!-- Lights -->
   <a-light type="directional" castShadow="true" intensity="0.4" color="#D0EAF9;" position="5 3 1"></a-light>
   <a-light intensity="0.8" type="ambient" color="#B4C5EC"></a-light>
@@ -25,13 +34,21 @@
   <a-cone class="iceberg" segments-radial="7" segments-height="3" height="0.5" radius-top="0.25" radius-bottom="0.35" position="-3 -0.1 -0.5"></a-cone>
   <a-cone class="iceberg" segments-radial="6" segments-height="2" height="0.5" radius-top="0.25" radius-bottom="0.25" position="-5 -0.2 -3.5"></a-cone>
   <!-- Ocean -->
-  <a-box depth="50" width="50" height="1" color="#7AD2F7" position="0 -0.5 0"></a-box>
+   
   <!-- Platform -->
   <a-cone scale="2 2 2" shadow position="0 -3.5 -1.5" rotation="90 0 0" radius-top="1.9" radius-bottom="1.9" segments-radial="20" segments-height="20" height="20" emissive="#005DED" emissive-intensity="0.1">
     <a-entity id="tree-container" position="0 .5 -1.5" rotation="-90 0 0">
     </a-entity>
   </a-cone>
-  <a-entity id="cam" camera="active: true"  position="0 1.6 0" ></a-entity>
+  <!-- <a-entity id="cam" camera="active: true"  look-controls rotation-reader position="0 1.6 0" > -->
+  <a-entity id="camera" camera="active: true" position="0 1.6 0" move-control>  
+    <a-entity id="cursor" cursor="fuse: true;fuseTimeout:500"     
+    	material="color:silver"
+    	geometry="primitive:ring"
+    	position="0 0 -1"
+    	scale="0.01 0.01 0.01"
+    ></a-entity>
+  </a-entity>
 </a-scene>
 
 <!-- camera input -->

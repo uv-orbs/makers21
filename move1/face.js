@@ -70,4 +70,5 @@ const camera = new window.Camera(videoElement, {
   width: 1280,
   height: 720
 });
+
 camera.start();
