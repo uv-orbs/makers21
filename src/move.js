@@ -1,11 +1,13 @@
 var ctx = null;
 var player = null;
-const speed = 0.01;
+//const speedUnitPerSec = 2;
+const speed = 0.1;
 const hFactor = 0.1 ;
 const vFactor = 0.05 ;
 const alttd = 0.1;
 const levelHrznRate = 0.95
 let stop = true;
+let lastMove = 0;
 
 window.GAZE_ORIENTATION = {x: 0, y: 0};
 
@@ -30,6 +32,7 @@ AFRAME.registerComponent('move-control', {
         //   player.object3D.rotation.x = 0;
         //   break;
         case "Space":
+          lastMove = Date.now();
           stop = !stop;
           if(!stop){
             window.GAZE_ORIENTATION.zeroX = window.GAZE_ORIENTATION.x;
@@ -145,7 +148,14 @@ AFRAME.registerComponent('move-control', {
     player.object3D.rotation.z = z;
       
   },
-  move: function(){    
+  move: function(){
+    // now = Date.now();
+    // const timeDiff = now - lastMove;
+    // let distance = speedUnitPerSec * timeDiff / 1000;
+    // lastMove = now;
+
+
+    //const distance = 0.2;
     // create a direction vector
     // var direction = new THREE.Vector3();
     // // get the cameras world direction
@@ -187,7 +197,7 @@ AFRAME.registerComponent('move-control', {
     player.object3D.rotateOnWorldAxis(new THREE.Vector3(0.0, 1.0, 0.0), hTurn * hFactor);       
 
     // z rotation
-    //player.object3D.rotateZ(vTurn  * vFactor); 
+    //player.object3D.rotateZ(hTurn  * vFactor); 
     
     // vertical
     player.object3D.rotateX(vTurn  * vFactor); 
