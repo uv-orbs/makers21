@@ -185,8 +185,13 @@ AFRAME.registerComponent('move-control', {
     // sideways
     // player.object3D.rotateY(hTurn * hFactor); - causing horizon lost
     player.object3D.rotateOnWorldAxis(new THREE.Vector3(0.0, 1.0, 0.0), hTurn * hFactor);       
+
+    // z rotation
+    //player.object3D.rotateZ(vTurn  * vFactor); 
+    
     // vertical
     player.object3D.rotateX(vTurn  * vFactor); 
+    
 
     //player.object3D.rotateOnWorldAxis(player.object3D.getWorldDirection(), 0);
 
